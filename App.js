@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './screens/SplashScreen';
 import DetailScreen from './screens/DetailsScreen';
 import HomeScreen from './screens/HomeScreen';
+import { Colors } from './styles/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,13 @@ function App() {
     <>
       <StatusBar style='dark' />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='SplashScreen'>
+        <Stack.Navigator
+          initialRouteName='HomeScreen'
+          screenOptions={{
+            headerTintColor: Colors.primary,
+            contentStyle:{ backgroundColor: 'white' }
+          }}
+        >
           <Stack.Screen
             name='SplashScreen'
             component={SplashScreen}
@@ -27,6 +34,11 @@ function App() {
           <Stack.Screen
             name='HomeScreen'
             component={HomeScreen}
+            options={{
+              title: 'Movie App',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
