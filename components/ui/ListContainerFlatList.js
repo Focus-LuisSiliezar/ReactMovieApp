@@ -8,7 +8,8 @@ export default ListContainerFlatList;
 
 const style = StyleSheet.create({
     listContainer:{
-        paddingTop: 5,
-        paddingBottom: 50,
+        flex: 1,
+        paddingTop: 15,
+        alignItems:"center",
     }
 });

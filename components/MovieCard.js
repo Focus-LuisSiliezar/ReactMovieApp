@@ -11,6 +11,7 @@ function MovieCard({ onPress,styleOverride, movieURI, movieTitle, movieDescripti
             <View style={[styleOverride, style.cardContainer]}>
                 <View>
                     <Image
+        
                         style={style.image}
                         source={require('../assets/images/placeholder_image.png')}
                     />
@@ -50,7 +51,7 @@ const style = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 250,
+        height: 150,
     },
     movieInfo: {
         flexDirection: "row",

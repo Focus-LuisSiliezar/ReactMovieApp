@@ -1,20 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useLayoutEffect } from "react";
+import { StyleSheet, Image, View } from "react-native";
 import ListOfMovies from "../components/lists/ListOfMovies";
-import MovieCard from "../components/MovieCard";
+import HeaderImage from "../components/ui/HeaderImage";
 import Title from "../components/ui/Title";
-import { Colors } from "../styles/colors";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerTitle: () => <HeaderImage />
+        });
+    });
+
 
     return (
         <View style={style.root}>
             <Title
                 label='Available Movies'
-                styleOverride={{ color: Colors.primary }}
+                styleOverride={{ color: 'white' , paddingTop: 20}}
             />
-            <View style={style.cardsContainer}>
-            <ListOfMovies />
-            </View>
+                <ListOfMovies />
         </View>
     );
 }
@@ -23,7 +27,12 @@ export default HomeScreen;
 
 const style = StyleSheet.create({
     root: {
-        marginHorizontal: 15,  
+        flex:1 ,
+        marginHorizontal: 15,
         paddingBottom: 15,
-    }
+    },
+    image: {
+        width: '100%',
+        height: 250,
+    },
 });

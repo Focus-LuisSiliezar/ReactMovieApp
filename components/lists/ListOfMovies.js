@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import MoviesModel from "../../models/movies";
 import MovieCard from "../MovieCard";
 import ListContainerFlatList from "../ui/ListContainerFlatList";
+import MovieItemForList from "../ui/MovieItemForList";
 
 const MOVIES = [
     new MoviesModel(
@@ -112,20 +113,20 @@ function ListOfMovies() {
     }
 
     const renderItem = ({ item }) => (
-        <MovieCard
+        <MovieItemForList
             onPress={() => {
                 movieDetailsNavigator(item.id);
-
             }}
             movieTitle={item.originalTitle}
-            movieRating={item.voteAverage}
-            movieDescription={item.releaseDate}
         />
     );
 
     return (
-        <ListContainerFlatList >
+        <ListContainerFlatList>
             <FlatList
+                numColumns={2}
+                contentContainerStyle={{ paddingBottom: 20 }}
+                ItemSeparatorComponent={() => <View style={{height: 12}} />}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 data={MOVIES}
