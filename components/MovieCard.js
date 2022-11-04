@@ -1,35 +1,40 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { Colors } from "../styles/colors";
 import Paragraph from "./ui/Paragraph";
 import Rating from "./ui/Rating";
 import Subtitle from "./ui/Subtitle";
 
-function MovieCard({ styleOverride, movieURI, movieTitle, movieDescription, movieRating }) {
+function MovieCard({ onPress,styleOverride, movieURI, movieTitle, movieDescription, movieRating }) {
 
     return (
-        <View style={[styleOverride, style.cardContainer]}>
-            <View>
-                <Image
-                    style={style.image}
-                    source={require('../assets/images/placeholder_image.png')}
-                />
-            </View>
-            <View style={style.movieInfo}>
-                <View style={style.movieData}>
-                    <Subtitle
-                        label={movieTitle}
-                        styleOverride={{ color: 'white' }}
-                    />
-                    <Paragraph
-                        label={movieDescription}
-                        styleOverride={{ color: 'white' }}
+        <Pressable  onPress={onPress}>
+            <View style={[styleOverride, style.cardContainer]}>
+                <View>
+                    <Image
+                        style={style.image}
+                        source={require('../assets/images/placeholder_image.png')}
                     />
                 </View>
-                <Rating
-                    movieRating={movieRating}
-                />
+                <View style={style.movieInfo}>
+                    <View style={style.movieData}>
+                        <Subtitle
+                            label={movieTitle}
+                            styleOverride={{ color: 'white' }}
+                        />
+                        <Paragraph
+                            label={movieDescription}
+                            styleOverride={{ color: 'white' }}
+                        />
+                    </View>
+                    <View style={style.ratingData}>
+                    <Rating
+                        movieRating={movieRating}
+                    />
+                    </View>
+            
+                </View>
             </View>
-        </View>
+        </Pressable>
     );
 }
 
@@ -47,18 +52,21 @@ const style = StyleSheet.create({
         width: '100%',
         height: 250,
     },
-    movieInfo:{
+    movieInfo: {
         flexDirection: "row",
         alignItems: 'center',
-        justifyContent: "space-around",
-        marginTop: 15,
-        marginBottom: 25,
-        marginLeft: 10,
-        marginRight: 25,
+        justifyContent: "space-between",
+        alignContent: "space-between",
+        marginVertical: 15,
+        paddingHorizontal: 15,
     },
-    movieData:{
-        maxWidth: '75%',
+    movieData: {
         marginRight: 10,
+        alignItems:"flex-start"
+    },
+    ratingData:{
+        maxWidth: '25%',
+        alignItems:"flex-end",
     }
 });
 

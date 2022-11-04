@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './screens/SplashScreen';
@@ -46,8 +46,5 @@ function App() {
   );
 };
 
-const styles = StyleSheet.create({
-
-});
 
 export default App;

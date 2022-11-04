@@ -15,8 +15,8 @@ const style = StyleSheet.create({
     ratingContainer:{
         backgroundColor: Colors.secondary,
         minHeight:50,
-        minWidth: '20%',
-        maxWidth: 50,
+        minWidth: '25%',
+        maxWidth: 150,
         justifyContent: 'center',
         alignItems:  "center",
         borderRadius: 12,
@@ -24,6 +24,7 @@ const style = StyleSheet.create({
     ratingText:{
         color: 'white',
         fontSize: 21,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingHorizontal: 10,
     }
 });

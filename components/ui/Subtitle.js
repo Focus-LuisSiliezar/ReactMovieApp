@@ -11,4 +11,4 @@ const style = StyleSheet.create({
         fontWeight: "700",
     }
 
-});
+});     

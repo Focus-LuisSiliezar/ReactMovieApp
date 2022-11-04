@@ -23,6 +23,7 @@ export default HomeScreen;
 
 const style = StyleSheet.create({
     root: {
-        marginHorizontal: 15
+        marginHorizontal: 15,  
+        paddingBottom: 15,
     }
 });
