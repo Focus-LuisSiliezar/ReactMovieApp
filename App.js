@@ -16,7 +16,7 @@ function App() {
       <StatusBar style='light' />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='HomeScreen'
+          initialRouteName='SplashScreen'
           screenOptions={{
             contentStyle: {
               backgroundColor: Colors.secondary,
