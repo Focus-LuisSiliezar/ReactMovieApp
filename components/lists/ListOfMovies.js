@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { FlatList, StyleSheet, View } from "react-native";
 import MoviesModel from "../../models/movies";
 import MovieCard from "../MovieCard";
@@ -10,7 +11,7 @@ const MOVIES = [
         'Movie One',
         'This is the overview',
         '100%',
-        '../poster/path',
+        'https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg',
         '1999-08-15',
         '100%',
         '150'
@@ -20,7 +21,7 @@ const MOVIES = [
         'Movie Two',
         'This is the overview for the secodn movie fht the sequel',
         '90%',
-        '../poster/path',
+        'https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg',
         '1999-08-15',
         '90%',
         '150'
@@ -30,7 +31,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '100%',
-        '../poster/path',
+        null,
         '1999-08-15',
         '23%',
         '150'
@@ -40,7 +41,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '100%',
-        '../poster/path',
+        null,
         '1999-08-15',
         '54%',
         '150'
@@ -50,7 +51,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '100%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '35%',
         '150'
@@ -60,7 +61,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '45%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '45%',
         '150'
@@ -70,7 +71,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '52%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '52%',
         '150'
@@ -80,7 +81,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '90%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '90%',
         '150'
@@ -90,7 +91,7 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '85%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '85%',
         '150'
@@ -100,24 +101,30 @@ const MOVIES = [
         'Original Title',
         'This is the overview',
         '70%',
-        '../poster/path',
+        'https://cdn.shopify.com/s/files/1/0608/8264/9321/files/blade_runner_2049_17_u.jpg?v=1637179276',
         '1999-08-15',
         '70%',
         '150'
     ),
 ]
 function ListOfMovies() {
-
-    function movieDetailsNavigator(itemId) {
+    const navigator = useNavigation();
+    function movieDetailsNavigator({itemId, itemTitle}) {
+        navigator.navigate('DetailsScreen', {
+            movieId: itemId,
+            movieTitle: itemTitle,
+        } )
         console.log(itemId);
     }
 
     const renderItem = ({ item }) => (
         <MovieItemForList
             onPress={() => {
-                movieDetailsNavigator(item.id);
+                movieDetailsNavigator({itemId: item.id, itemTitle: item.originalTitle});
             }}
             movieTitle={item.originalTitle}
+            uri={item.posterPath}
+
         />
     );
 
@@ -126,7 +133,7 @@ function ListOfMovies() {
             <FlatList
                 numColumns={2}
                 contentContainerStyle={{ paddingBottom: 20 }}
-                ItemSeparatorComponent={() => <View style={{height: 12}} />}
+                ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 data={MOVIES}
