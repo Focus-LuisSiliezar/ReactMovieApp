@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import MoviesModel from "../../models/movies";
 import ListContainerHorizontalFlatList from "../ui/ListContainerHorizontalFlatList";
 import MovieItemForHorizontalList from "../ui/MovieItemForHorizontalList";
+import Subtitle from "../ui/Subtitle";
 
 const MOVIES = [
     new MoviesModel(
@@ -132,6 +133,10 @@ function ListOfRelatedMovies() {
 
     return (
         <ListContainerHorizontalFlatList>
+            <Subtitle 
+            label='Related Movies'
+            styleOverride={{marginVertical: 15,}}
+            />
             <FlatList
             horizontal={true}
                 numColumns={1}
