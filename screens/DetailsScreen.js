@@ -1,13 +1,15 @@
 import { useLayoutEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
+import ListOfRelatedMovies from "../components/lists/ListOfRelatedMovies";
 import MovieDetails from "../components/MovieDetails";
+import IconButton from "../components/ui/IconButton";
 import ScreenDimensions from "../components/ui/ScreenDimensions";
 
 function DetailScreen({ route, navigation }) {
     const { movieTitle, movieId, overview, moviePoster, movieRating } = route.params;
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <Text style={{ color: 'white' }}>Fav</Text>
+            headerRight: () => <IconButton name='star' color='white' />
         });
     });
 
@@ -20,11 +22,10 @@ function DetailScreen({ route, navigation }) {
                     moviePoster={moviePoster}
                     movieOverview={overview}
                 />
+                <ListOfRelatedMovies />
             </ScreenDimensions>
         </ScrollView>
-
     );
-
 }
 
 export default DetailScreen;

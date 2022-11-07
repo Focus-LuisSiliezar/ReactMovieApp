@@ -1,7 +1,7 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Alert, Image, StyleSheet, View } from "react-native";
+import IconButton from "./ui/IconButton";
 import Paragraph from "./ui/Paragraph";
-import Rating from "./ui/Rating";
-import Subtitle from "./ui/Subtitle";
+import TextButton from "./ui/TextButton";
 import Title from "./ui/Title";
 
 function MovieDetails({ moviePoster, movieTitle, movieOverview, movieRating }) {
@@ -11,13 +11,18 @@ function MovieDetails({ moviePoster, movieTitle, movieOverview, movieRating }) {
                 style={style.image}
                 source={moviePoster ? { uri: moviePoster } : require('../assets/images/placeholder_image.png')}
             />
+            <View style={style.buttonRow}>
+                <TextButton label='Play movie' iconName='play' onPress={() => Alert.alert('Movie unavailable at the moment', 'Please try again later')} />
+                <IconButton name='plus' color='white' />
+                <IconButton name='cast' color='white' onPress={() => Alert.alert('Unable to connect', 'Please check your internet connection and try again later')} />
+            </View>
             <View style={style.infoRow}>
                 <Title
                     label={movieTitle} />
                 <View style={style.infoRow}>
                     <Paragraph
                         label='Average Rating: '
-                        styleOverride={{fontWeight: 'bold'}}
+                        styleOverride={{ fontWeight: 'bold' }}
                     />
                     <Paragraph
                         label={movieRating} />
@@ -27,6 +32,7 @@ function MovieDetails({ moviePoster, movieTitle, movieOverview, movieRating }) {
             <Paragraph
                 label={movieOverview} />
         </View>
+
     );
 }
 
@@ -35,7 +41,7 @@ export default MovieDetails;
 const style = StyleSheet.create({
     image: {
         height: 550,
-        width: '100%'
+        width: '100%',
     },
     infoRow: {
         flexDirection: "row",
@@ -43,7 +49,12 @@ const style = StyleSheet.create({
         alignItems: "center",
         marginTop: 10,
         marginBottom: 3,
-
+    },
+    buttonRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginTop: 15,
+        marginBottom: 5,
     }
-
 });

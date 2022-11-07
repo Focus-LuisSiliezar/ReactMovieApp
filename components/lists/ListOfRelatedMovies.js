@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { FlatList, StyleSheet, View } from "react-native";
 import MoviesModel from "../../models/movies";
-import ListContainerFlatList from "../ui/ListContainerFlatList";
-import MovieItemForList from "../ui/MovieItemForList";
+import ListContainerHorizontalFlatList from "../ui/ListContainerHorizontalFlatList";
+import MovieItemForHorizontalList from "../ui/MovieItemForHorizontalList";
 
 const MOVIES = [
     new MoviesModel(
@@ -106,7 +106,7 @@ const MOVIES = [
         '150'
     ),
 ]
-function ListOfMovies() {
+function ListOfRelatedMovies() {
     const navigator = useNavigation();
     function movieDetailsNavigator({ itemId, itemTitle, itemOverview, itemPoster, itemRating }) {
         navigator.navigate('DetailsScreen', {
@@ -120,7 +120,7 @@ function ListOfMovies() {
     }
 
     const renderItem = ({ item }) => (
-        <MovieItemForList
+        <MovieItemForHorizontalList
             onPress={() => {
                 movieDetailsNavigator({ itemId: item.id, itemTitle: item.originalTitle, itemOverview: item.overview, itemPoster: item.posterPath, itemRating: item.voteAverage });
             }}
@@ -131,19 +131,20 @@ function ListOfMovies() {
     );
 
     return (
-        <ListContainerFlatList>
+        <ListContainerHorizontalFlatList>
             <FlatList
-                numColumns={2}
-                contentContainerStyle={{ paddingBottom: 20 }}
-                ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
+            horizontal={true}
+                numColumns={1}
+                // contentContainerStyle={{ paddingBottom: 20 }}
+                // ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
+                // showsVerticalScrollIndicator={false}
+                // showsHorizontalScrollIndicator={false}
                 data={MOVIES}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
             />
-        </ListContainerFlatList>
+        </ListContainerHorizontalFlatList>
     );
 }
 
-export default ListOfMovies;
+export default ListOfRelatedMovies;

@@ -8,10 +8,13 @@ import DetailScreen from './screens/DetailsScreen';
 import HomeScreen from './screens/HomeScreen';
 import { Colors } from './styles/colors';
 import HeaderImage from './components/ui/HeaderImage';
+import IconButton from './components/ui/IconButton';
+import SearchScreen from './screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+
   return (
     <>
       <StatusBar style='light' />
@@ -34,13 +37,23 @@ function App() {
             component={SplashScreen}
             options={{ headerShown: false }}
           />
+            <Stack.Screen
+              name='SearchScreen'
+              component={SearchScreen}
+              options={{
+                title: ''
+              }}
+            />
           <Stack.Screen
             name='HomeScreen'
             component={HomeScreen}
             options={{
-              headerLeft: ()=>  <Text style={{color: 'white'}}>Menu</Text>,
+              headerLeft: () => <IconButton name='menu' color='white' />,
               headerTitle: () => <HeaderImage />,
-              headerRight: ()=> <Text style={{color:'white'}}>Search</Text>
+              // ERROR
+              headerRight: () => <IconButton name='search' color='white'
+              //  onPress={()=> useNavigation.Navigator('SearchScreen')} 
+               />
             }}
           />
           <Stack.Screen
@@ -49,7 +62,6 @@ function App() {
             options={{
               title: ''
             }}
-
           />
         </Stack.Navigator>
       </NavigationContainer>

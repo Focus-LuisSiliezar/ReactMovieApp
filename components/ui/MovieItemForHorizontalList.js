@@ -1,8 +1,7 @@
 import { ImageBackground, Pressable, StyleSheet, View } from "react-native";
 import { Colors } from "../../styles/colors";
 
-function MovieItemForList({  uri, onPress }) {
-
+function MovieItemForHorizontalList({ uri, onPress }) {
     return (
         <Pressable onPress={onPress}>
             <View style={style.cardContainer}>
@@ -20,12 +19,12 @@ function MovieItemForList({  uri, onPress }) {
 
     );
 }
-export default MovieItemForList;
+export default MovieItemForHorizontalList;
 
 const style = StyleSheet.create({
     cardContainer: {
-        maxWidth: 175,
-        minWidth: '49.5%',
+        width: 150,
+        height: 230,
         backgroundColor: Colors.primary,
         borderRadius: 6,
         overflow: "hidden",
