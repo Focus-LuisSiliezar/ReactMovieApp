@@ -3,8 +3,8 @@ import { Colors } from "../../styles/colors";
 import Paragraph from "./Paragraph";
 
 function MovieItemForList({ movieTitle, uri, onPress }) {
-    if(uri == null){
-    
+    if (uri == null) {
+
     }
     return (
         <Pressable onPress={onPress}>
@@ -12,8 +12,8 @@ function MovieItemForList({ movieTitle, uri, onPress }) {
                 <ImageBackground
                     style={style.image}
                     source={
-                    uri ?  {uri: uri}
-                    :    require('../../assets/images/placeholder_image.png')
+                        uri ? { uri: uri }
+                            : require('../../assets/images/placeholder_image.png')
                     }
                 >
                     {/* <View style={style.textContainer}>

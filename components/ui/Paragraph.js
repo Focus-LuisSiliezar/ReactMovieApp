@@ -9,6 +9,7 @@ const style = StyleSheet.create({
     paragraph: {
         fontSize: 14,
         fontWeight: "400",
+        color: 'white'
     }
 
 });

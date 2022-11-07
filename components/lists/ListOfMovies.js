@@ -109,18 +109,21 @@ const MOVIES = [
 ]
 function ListOfMovies() {
     const navigator = useNavigation();
-    function movieDetailsNavigator({itemId, itemTitle}) {
+    function movieDetailsNavigator({ itemId, itemTitle, itemOverview, itemPoster, itemRating }) {
         navigator.navigate('DetailsScreen', {
             movieId: itemId,
             movieTitle: itemTitle,
-        } )
+            overview: itemOverview,
+            moviePoster: itemPoster,
+            movieRating: itemRating,
+        })
         console.log(itemId);
     }
 
     const renderItem = ({ item }) => (
         <MovieItemForList
             onPress={() => {
-                movieDetailsNavigator({itemId: item.id, itemTitle: item.originalTitle});
+                movieDetailsNavigator({ itemId: item.id, itemTitle: item.originalTitle, itemOverview: item.overview, itemPoster: item.posterPath, itemRating: item.voteAverage });
             }}
             movieTitle={item.originalTitle}
             uri={item.posterPath}

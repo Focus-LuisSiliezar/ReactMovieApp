@@ -9,6 +9,7 @@ const style = StyleSheet.create({
     title: {
         fontSize: 21,
         fontWeight: "900",
+        color:'white',
     }
 
 });

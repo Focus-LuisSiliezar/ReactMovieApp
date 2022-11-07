@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import { Colors } from "../../styles/colors";
 
-function Rating({movieRating}){
+function Rating({ movieRating }) {
 
     return (
         <View style={style.ratingContainer}>
@@ -12,16 +12,13 @@ function Rating({movieRating}){
 }
 export default Rating;
 const style = StyleSheet.create({
-    ratingContainer:{
-        backgroundColor: Colors.secondary,
-        minHeight:50,
+    ratingContainer: {
+        minHeight: 50,
         minWidth: '25%',
-        maxWidth: 150,
-        justifyContent: 'center',
-        alignItems:  "center",
+        maxWidth: 50,
         borderRadius: 12,
     },
-    ratingText:{
+    ratingText: {
         color: 'white',
         fontSize: 21,
         fontWeight: 'bold',
