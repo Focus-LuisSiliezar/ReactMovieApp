@@ -8,7 +8,7 @@ export default function SplashScreen() {
     const navigation = useNavigation();
     function SplashScreenDelay() {
         navigation.dispatch(
-            StackActions.replace('HomeScreen')
+            StackActions.replace('DrawerMenu')
         );
         console.log('Time is up');
     }

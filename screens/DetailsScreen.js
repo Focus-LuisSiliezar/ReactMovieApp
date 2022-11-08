@@ -9,7 +9,7 @@ function DetailScreen({ route, navigation }) {
     const { movieTitle, movieId, overview, moviePoster, movieRating } = route.params;
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => <IconButton name='star' color='white' />
+            headerRight: () => <IconButton name='star' color='white' />,
         });
     });
 

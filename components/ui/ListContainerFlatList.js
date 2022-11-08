@@ -10,6 +10,6 @@ const style = StyleSheet.create({
     listContainer:{
         flex: 1,
         paddingTop: 15,
-        alignItems:"center",
+        alignItems:"flex-start",
     }
 });

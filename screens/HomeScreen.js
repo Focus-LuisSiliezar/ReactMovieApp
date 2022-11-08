@@ -1,18 +1,26 @@
-import { StyleSheet, Image, View, Text } from "react-native";
+import { useLayoutEffect } from "react";
 import ListOfMovies from "../components/lists/ListOfMovies";
+import HeaderImage from "../components/ui/HeaderImage";
+import IconButton from "../components/ui/IconButton";
 import ScreenDimensions from "../components/ui/ScreenDimensions";
-import Title from "../components/ui/Title";
 
 function HomeScreen({ navigation }) {
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => <IconButton name='menu' color='white' styleOverride={{marginLeft: 20}} 
+            onPress={()=> navigation.toggleDrawer()} 
+            />,
+            headerTitle: () => <HeaderImage />,
+            headerRight: () => <IconButton styleOverride={{marginRight: 20}} name='search' color='white' 
+             onPress={()=> navigation.navigate('SearchScreen')} 
+            />
+        });
+    });
+
     return (
         <ScreenDimensions>
-            <Title
-                label='Available Movies'
-                styleOverride={{ color: 'white', paddingTop: 20 }}
-            />
             <ListOfMovies />
         </ScreenDimensions>
-
     );
 }
 

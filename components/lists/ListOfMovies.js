@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import MoviesModel from "../../models/movies";
 import ListContainerFlatList from "../ui/ListContainerFlatList";
 import MovieItemForList from "../ui/MovieItemForList";
+import Title from "../ui/Title";
 
 const MOVIES = [
     new MoviesModel(
@@ -132,6 +133,10 @@ function ListOfMovies() {
 
     return (
         <ListContainerFlatList>
+              <Title
+                label='Available Movies'
+                styleOverride={{ color: 'white', paddingTop: 5 ,paddingBottom: 10,}}
+            />
             <FlatList
                 numColumns={2}
                 contentContainerStyle={{ paddingBottom: 20 }}
