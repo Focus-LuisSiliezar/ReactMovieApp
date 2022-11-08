@@ -1,11 +1,11 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function TextButton({ label, onPress, iconName }) {
     return (
-        <Pressable onPress={onPress} style={({pressed}) => pressed && style.pressed}>
+        <Pressable onPress={onPress} style={({ pressed }) => pressed && style.pressed}>
             <View style={style.buttonStyle}>
-                <Text style={{ color: 'black', fontWeight: "bold", marginRight: 15, }}>{label}</Text>
+                <Text style={{ color: 'black', fontWeight: "bold", marginRight: 15 }}>{label}</Text>
                 <Icon name={iconName}
                     size={15}
                     color='black'
@@ -27,8 +27,8 @@ const style = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-    }, 
-    pressed:{
+    },
+    pressed: {
         opacity: 0.7
     }
 });

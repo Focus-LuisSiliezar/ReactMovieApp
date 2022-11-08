@@ -3,15 +3,13 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import React from 'react';
-import { StatusBar, Text, } from 'react-native';
+import { StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './screens/SplashScreen';
 import DetailScreen from './screens/DetailsScreen';
 import HomeScreen from './screens/HomeScreen';
 import { Colors } from './styles/colors';
-import HeaderImage from './components/ui/HeaderImage';
-import IconButton from './components/ui/IconButton';
 import SearchScreen from './screens/SearchScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
 
@@ -39,7 +37,7 @@ function DrawerNavigator() {
     >
       <Drawer.Screen name='HomeScreen'
         component={HomeScreen}
-         />
+      />
 
       <Drawer.Screen name='FavoritesScreen' component={FavoritesScreen} options={{
         title: 'Favorites',

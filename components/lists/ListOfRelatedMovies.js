@@ -140,10 +140,6 @@ function ListOfRelatedMovies() {
             <FlatList
             horizontal={true}
                 numColumns={1}
-                // contentContainerStyle={{ paddingBottom: 20 }}
-                // ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
-                // showsVerticalScrollIndicator={false}
-                // showsHorizontalScrollIndicator={false}
                 data={MOVIES}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

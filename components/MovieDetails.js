@@ -12,8 +12,8 @@ function MovieDetails({ moviePoster, movieTitle, movieOverview, movieRating }) {
                 source={moviePoster ? { uri: moviePoster } : require('../assets/images/placeholder_image.png')}
             />
             <View style={style.buttonRow}>
-                <TextButton label='Play movie' iconName='play' onPress={() => Alert.alert('Movie unavailable at the moment', 'Please try again later')} />
-                <IconButton name='plus' color='white' />
+                <TextButton label='Play movie' iconName='play-arrow' onPress={() => Alert.alert('Movie unavailable at the moment', 'Please try again later')} />
+                <IconButton name='add' color='white' />
                 <IconButton name='cast' color='white' onPress={() => Alert.alert('Unable to connect', 'Please check your internet connection and try again later')} />
             </View>
             <View style={style.infoRow}>
